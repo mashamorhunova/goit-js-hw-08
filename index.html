@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Галерея зображень</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background-color: #fff;
+        color: #212121;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 24px 156px;
+        list-style: none;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+        transition: transform 200ms ease, box-shadow 200ms ease;
+      }
+
+      .gallery-item:hover,
+      .gallery-item:focus-within {
+        transform: scale(1.04);
+        box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+      }
+
+      .gallery-link {
+        display: block;
+      }
+
+      .gallery-image {
+        display: block;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .basicLightbox__placeholder img {
+        display: block;
+        max-width: calc(100vw - 48px);
+        max-height: calc(100vh - 48px);
+      }
+
+      @media (max-width: 1000px) {
+        .gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding: 24px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="gallery"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <script src="./gallery.js"></script>
+  </body>
+</html>
